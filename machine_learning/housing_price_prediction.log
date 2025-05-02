@@ -1,0 +1,72 @@
+2025-05-02 16:02:32,378 - INFO - Démarrage du processus de prédiction des prix immobiliers
+2025-05-02 16:02:32,379 - INFO - Prédicteur de prix immobiliers initialisé
+2025-05-02 16:02:32,379 - INFO - === Début du pipeline de prédiction des prix immobiliers ===
+2025-05-02 16:02:32,379 - INFO - Chargement des données price_prediction_features...
+2025-05-02 16:02:32,379 - INFO - Initialisation de la session Spark...
+2025-05-02 16:02:36,266 - INFO - Session Spark initialisée avec succès (version: 3.5.5)
+2025-05-02 16:02:36,267 - INFO - Chargement des données depuis data/gold/price_prediction_features/year=2025/month=05/day=02
+2025-05-02 16:02:40,422 - INFO - Données chargées avec succès: 1473 lignes, 109 colonnes
+2025-05-02 16:02:40,423 - INFO - Colonnes disponibles: property_id, target_price, property_type, condition, energy_rating, age_at_sale, transaction_date, total_rooms, bathrooms, bedrooms, total_sqft, floors, garage_type, roof_style, has_pool, has_garden, heating_type, cooling_type, neighborhood, city, zoning_code, longitude, latitude, property_type_60, property_type_30, property_type_90, property_type_85, property_type_80, property_type_160, property_type_120, property_type_50, property_type_20, property_type_70, property_type_190, property_type_180, property_type_40, property_type_45, property_type_75, property_type_150, condition_7, condition_5, condition_4, condition_6, condition_1, condition_9, condition_8, condition_3, condition_2, energy_rating_b, energy_rating_c, energy_rating_e, energy_rating_a, energy_rating_d, garage_type_false, garage_type_true, roof_style_compshg, roof_style_wdshake, roof_style_wdshngl, roof_style_tar&grv, heating_type_gasa, heating_type_wall, heating_type_grav, heating_type_gasw, cooling_type_none, cooling_type_central_ac, neighborhood_brkside, neighborhood_edwards, neighborhood_timber, neighborhood_gilbert, neighborhood_veenker, neighborhood_stonebr, neighborhood_meadowv, neighborhood_blmngtn, neighborhood_names, neighborhood_somerst, neighborhood_idotrr, neighborhood_swisu, neighborhood_npkvill, neighborhood_clearcr, neighborhood_noridge, neighborhood_sawyer, neighborhood_oldtown, neighborhood_collgcr, neighborhood_mitchel, neighborhood_nwames, neighborhood_brdale, neighborhood_blueste, neighborhood_crawfor, neighborhood_sawyerw, neighborhood_nridght, zoning_code_fv, zoning_code_rh, zoning_code_rm, zoning_code_rl, zoning_code_c_(all), transaction_year, transaction_month, transaction_quarter, rooms_per_bedroom, rooms_per_bathroom, distance_to_downtown, neighborhood_avg_price, neighborhood_median_price, price_to_neighborhood_ratio, generated_at, source_table, year, month, day
+2025-05-02 16:02:40,423 - INFO - Préparation des données pour l'entraînement...
+2025-05-02 16:02:40,425 - INFO - Analyse des valeurs manquantes:
+2025-05-02 16:02:40,425 - INFO -   - zoning_code: 4 valeurs manquantes (0.27%)
+2025-05-02 16:02:40,426 - INFO - Features numériques (10): bathrooms, longitude, latitude, transaction_quarter, rooms_per_bedroom, rooms_per_bathroom, distance_to_downtown, neighborhood_avg_price, neighborhood_median_price, price_to_neighborhood_ratio
+2025-05-02 16:02:40,427 - INFO - Features catégorielles (11): property_type, condition, energy_rating, transaction_date, roof_style, heating_type, cooling_type, neighborhood, city, zoning_code, source_table
+2025-05-02 16:02:40,428 - INFO - Données divisées en 1178 exemples d'entraînement et 295 exemples de test
+2025-05-02 16:02:40,429 - INFO - Entraînement et évaluation des modèles...
+2025-05-02 16:02:40,429 - INFO - Entraînement du modèle de régression linéaire...
+2025-05-02 16:02:40,459 - INFO - Modèle de régression linéaire entraîné en 0.03 secondes
+2025-05-02 16:02:40,460 - INFO - Entraînement du modèle Random Forest...
+2025-05-02 16:02:49,100 - INFO - Meilleurs paramètres pour Random Forest: {'regressor__max_depth': None, 'regressor__min_samples_split': 5, 'regressor__n_estimators': 50}
+2025-05-02 16:02:49,100 - INFO - Modèle Random Forest entraîné en 8.64 secondes
+2025-05-02 16:02:49,101 - INFO - Entraînement du modèle Gradient Boosting...
+2025-05-02 16:02:50,436 - INFO - Meilleurs paramètres pour Gradient Boosting: {'regressor__learning_rate': 0.1, 'regressor__max_depth': 3, 'regressor__n_estimators': 100}
+2025-05-02 16:02:50,437 - INFO - Modèle Gradient Boosting entraîné en 1.34 secondes
+2025-05-02 16:02:50,437 - INFO - Évaluation du modèle Linear Regression...
+2025-05-02 16:02:50,445 - INFO - Métriques pour Linear Regression:
+2025-05-02 16:02:50,446 - INFO -   - RMSE: 120239.87
+2025-05-02 16:02:50,446 - INFO -   - MAE: 53457.46
+2025-05-02 16:02:50,446 - INFO -   - R²: 0.9097
+2025-05-02 16:02:50,446 - INFO -   - Variance expliquée: 0.9101
+2025-05-02 16:02:50,446 - INFO - Évaluation du modèle Random Forest...
+2025-05-02 16:02:50,461 - INFO - Métriques pour Random Forest:
+2025-05-02 16:02:50,462 - INFO -   - RMSE: 172113.33
+2025-05-02 16:02:50,462 - INFO -   - MAE: 32069.30
+2025-05-02 16:02:50,462 - INFO -   - R²: 0.8149
+2025-05-02 16:02:50,462 - INFO -   - Variance expliquée: 0.8149
+2025-05-02 16:02:50,462 - INFO - Évaluation du modèle Gradient Boosting...
+2025-05-02 16:02:50,469 - INFO - Métriques pour Gradient Boosting:
+2025-05-02 16:02:50,470 - INFO -   - RMSE: 149117.64
+2025-05-02 16:02:50,470 - INFO -   - MAE: 31379.28
+2025-05-02 16:02:50,470 - INFO -   - R²: 0.8611
+2025-05-02 16:02:50,470 - INFO -   - Variance expliquée: 0.8611
+2025-05-02 16:02:50,470 - INFO - Meilleur modèle: Linear Regression avec R² = 0.9097
+2025-05-02 16:02:50,471 - INFO - Calcul de l'importance des features...
+2025-05-02 16:02:57,036 - INFO - Utilisation des importances natives du modèle (agrégées par feature originale)
+2025-05-02 16:02:57,036 - INFO - Génération des visualisations...
+2025-05-02 16:02:57,837 - INFO - Visualisations générées et sauvegardées dans machine_learning/models
+2025-05-02 16:02:57,837 - INFO - Sauvegarde du meilleur modèle (Linear Regression)...
+2025-05-02 16:02:57,838 - INFO - Modèle sauvegardé avec succès: machine_learning/models\linear_regression_20250502_160257.pkl
+2025-05-02 16:02:57,839 - INFO - Enregistrement des métadonnées du modèle dans MySQL...
+2025-05-02 16:02:57,839 - INFO - Connexion à MySQL (localhost, tatane, immobilier_prediction_db)...
+2025-05-02 16:02:59,889 - INFO - Connexion à MySQL réussie
+2025-05-02 16:02:59,890 - ERROR - Erreur lors de l'enregistrement des métadonnées du modèle: 1054 (42S22): Unknown column 'model_path' in 'field list'
+2025-05-02 16:02:59,893 - INFO - Connexion MySQL fermée
+2025-05-02 16:02:59,894 - WARNING - Échec de l'enregistrement des métadonnées
+2025-05-02 16:02:59,894 - INFO - Génération des prédictions pour l'ensemble de test...
+2025-05-02 16:02:59,902 - INFO - Connexion à MySQL (localhost, tatane, immobilier_prediction_db)...
+2025-05-02 16:03:01,960 - INFO - Connexion à MySQL réussie
+2025-05-02 16:03:01,987 - ERROR - Erreur lors de l'enregistrement des prédictions: 1366 (HY000): Incorrect integer value: 'pred_20250502_1' for column 'prediction_id' at row 1
+2025-05-02 16:03:01,990 - INFO - Connexion MySQL fermée
+2025-05-02 16:03:01,990 - WARNING - Échec de la génération des prédictions
+2025-05-02 16:03:01,991 - INFO - === Pipeline de prédiction terminé avec succès ===
+2025-05-02 16:03:01,991 - INFO - ========== RÉSULTATS DE LA PRÉDICTION ==========
+2025-05-02 16:03:01,991 - INFO - Meilleur modèle: Linear Regression
+2025-05-02 16:03:01,991 - INFO - Métriques de performance:
+2025-05-02 16:03:01,991 - INFO -   - RMSE: 120239.87
+2025-05-02 16:03:01,991 - INFO -   - MAE: 53457.46
+2025-05-02 16:03:01,992 - INFO -   - R²: 0.9097
+2025-05-02 16:03:01,992 - INFO -   - Variance expliquée: 0.9101
+2025-05-02 16:03:01,992 - INFO - Modèle sauvegardé: machine_learning/models\linear_regression_20250502_160257.pkl
+2025-05-02 16:03:01,992 - INFO - =================================================
+2025-05-02 16:03:02,707 - INFO - Closing down clientserver connection

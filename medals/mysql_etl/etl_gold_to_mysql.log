@@ -1,0 +1,396 @@
+2025-05-02 15:40:28,493 - INFO - Démarrage du script d'exécution ETL Gold vers MySQL
+2025-05-02 15:40:28,495 - INFO - Paramètres d'exécution:
+2025-05-02 15:40:28,495 - INFO -   Gold Path: data/gold
+2025-05-02 15:40:28,495 - INFO -   MySQL Host: localhost
+2025-05-02 15:40:28,495 - INFO -   MySQL User: tatane
+2025-05-02 15:40:28,495 - INFO -   MySQL Database: immobilier_prediction_db
+2025-05-02 15:40:28,496 - INFO -   Exécution pour tous les datamarts
+2025-05-02 15:40:28,496 - INFO - Démarrage de l'ETL Gold vers MySQL à 2025-05-02 15:40:28
+2025-05-02 15:40:28,496 - INFO - ETL Base initialisé
+2025-05-02 15:40:28,496 - INFO - Initialisation de la session Spark...
+2025-05-02 15:40:33,924 - INFO - Session Spark initialisée avec succès (version: 3.5.5)
+2025-05-02 15:40:33,925 - INFO - Connexion à MySQL (localhost, tatane, immobilier_prediction_db)...
+2025-05-02 15:40:35,984 - INFO - Connexion à MySQL réussie
+2025-05-02 15:40:35,986 - INFO - Toutes les tables requises existent dans la base de données
+2025-05-02 15:40:35,986 - INFO - Fermeture de la connexion MySQL...
+2025-05-02 15:40:35,987 - INFO - Connexion MySQL fermée
+2025-05-02 15:40:35,987 - INFO - Chargement du Datamart 1: Analyse des Tendances de Prix par Région...
+2025-05-02 15:40:35,987 - INFO - ETL Base initialisé
+2025-05-02 15:40:35,988 - INFO - Recherche des dernières données pour la table 'price_trends' dans la couche GOLD...
+2025-05-02 15:40:35,989 - INFO - Données récentes trouvées pour 'price_trends': data/gold/price_trends/year=2025/month=05/day=02
+2025-05-02 15:40:35,989 - INFO - Lecture des données depuis ['data/gold/price_trends/year=2025/month=05/day=02\\part-00000-487fb53c-05af-4e84-bf9d-3375f45d5211-c000.snappy.parquet', 'data/gold/price_trends/year=2025/month=05/day=02\\part-00001-487fb53c-05af-4e84-bf9d-3375f45d5211-c000.snappy.parquet', 'data/gold/price_trends/year=2025/month=05/day=02\\part-00002-487fb53c-05af-4e84-bf9d-3375f45d5211-c000.snappy.parquet', 'data/gold/price_trends/year=2025/month=05/day=02\\part-00003-487fb53c-05af-4e84-bf9d-3375f45d5211-c000.snappy.parquet', 'data/gold/price_trends/year=2025/month=05/day=02\\part-00004-487fb53c-05af-4e84-bf9d-3375f45d5211-c000.snappy.parquet']
+2025-05-02 15:40:41,882 - INFO - Données GOLD pour 'price_trends' lues avec succès: 1054 lignes, 21 colonnes
+2025-05-02 15:40:41,883 - INFO - Recherche des dernières données pour la table 'market_indicators' dans la couche GOLD...
+2025-05-02 15:40:41,883 - INFO - Données récentes trouvées pour 'market_indicators': data/gold/market_indicators/year=2025/month=05/day=02
+2025-05-02 15:40:41,884 - INFO - Lecture des données depuis ['data/gold/market_indicators/year=2025/month=05/day=02\\part-00000-62e27591-112c-41a8-a7ef-6e12a7865502-c000.snappy.parquet']
+2025-05-02 15:40:42,320 - INFO - Données GOLD pour 'market_indicators' lues avec succès: 705 lignes, 22 colonnes
+2025-05-02 15:40:42,321 - INFO - Recherche des dernières données pour la table 'seasonal_variations' dans la couche GOLD...
+2025-05-02 15:40:42,322 - INFO - Données récentes trouvées pour 'seasonal_variations': data/gold/seasonal_variations/year=2025/month=05/day=02
+2025-05-02 15:40:42,323 - INFO - Lecture des données depuis ['data/gold/seasonal_variations/year=2025/month=05/day=02\\part-00000-7b8bc3d1-be6d-46f3-97b4-9906b12f4d85-c000.snappy.parquet', 'data/gold/seasonal_variations/year=2025/month=05/day=02\\part-00001-7b8bc3d1-be6d-46f3-97b4-9906b12f4d85-c000.snappy.parquet']
+2025-05-02 15:40:42,662 - INFO - Données GOLD pour 'seasonal_variations' lues avec succès: 270 lignes, 19 colonnes
+2025-05-02 15:40:42,662 - INFO - Chargement des données dans le Datamart 1...
+2025-05-02 15:40:42,662 - INFO - Transformation des données pour dm_regional_price_trends...
+2025-05-02 15:40:43,678 - INFO - Insertion des données dans la table MySQL dm_regional_price_trends...
+2025-05-02 15:40:43,679 - INFO - Connexion à MySQL (localhost, tatane, immobilier_prediction_db)...
+2025-05-02 15:40:45,733 - INFO - Connexion à MySQL réussie
+2025-05-02 15:40:46,053 - INFO - Lot de 57 enregistrements inséré dans dm_regional_price_trends
+2025-05-02 15:40:46,053 - INFO - Insertion dans dm_regional_price_trends terminée: 57 enregistrements
+2025-05-02 15:40:46,054 - INFO - Fermeture de la connexion MySQL...
+2025-05-02 15:40:46,054 - INFO - Connexion MySQL fermée
+2025-05-02 15:40:46,054 - INFO - Transformation des données pour dm_neighborhood_comparison...
+2025-05-02 15:40:46,054 - WARNING - Colonnes manquantes dans price_trends: ['property_price_per_sqm']
+2025-05-02 15:40:47,641 - INFO - Insertion des données dans la table MySQL dm_neighborhood_comparison...
+2025-05-02 15:40:47,641 - INFO - Connexion à MySQL (localhost, tatane, immobilier_prediction_db)...
+2025-05-02 15:40:49,695 - INFO - Connexion à MySQL réussie
+2025-05-02 15:40:50,824 - INFO - Lot de 25 enregistrements inséré dans dm_neighborhood_comparison
+2025-05-02 15:40:50,824 - INFO - Insertion dans dm_neighborhood_comparison terminée: 25 enregistrements
+2025-05-02 15:40:50,825 - INFO - Fermeture de la connexion MySQL...
+2025-05-02 15:40:50,825 - INFO - Connexion MySQL fermée
+2025-05-02 15:40:50,826 - INFO - Transformation des données pour dm_seasonal_patterns...
+2025-05-02 15:40:51,134 - INFO - Insertion des données dans la table MySQL dm_seasonal_patterns...
+2025-05-02 15:40:51,134 - INFO - Connexion à MySQL (localhost, tatane, immobilier_prediction_db)...
+2025-05-02 15:40:53,190 - INFO - Connexion à MySQL réussie
+2025-05-02 15:40:53,338 - INFO - Lot de 12 enregistrements inséré dans dm_seasonal_patterns
+2025-05-02 15:40:53,339 - INFO - Insertion dans dm_seasonal_patterns terminée: 12 enregistrements
+2025-05-02 15:40:53,339 - INFO - Fermeture de la connexion MySQL...
+2025-05-02 15:40:53,340 - INFO - Connexion MySQL fermée
+2025-05-02 15:40:53,340 - INFO - Datamart 1 chargé avec succès: {'dm_regional_price_trends': 57, 'dm_neighborhood_comparison': 25, 'dm_seasonal_patterns': 12}
+2025-05-02 15:40:53,340 - INFO - Chargement du Datamart 2: Évaluation des Facteurs d'Impact sur les Prix...
+2025-05-02 15:40:53,341 - INFO - ETL Base initialisé
+2025-05-02 15:40:53,341 - INFO - Recherche des dernières données pour la table 'feature_importance' dans la couche GOLD...
+2025-05-02 15:40:53,342 - INFO - Aucune donnée trouvée à la date actuelle, recherche des données les plus récentes...
+2025-05-02 15:40:53,343 - WARNING - Aucune donnée trouvée pour 'feature_importance'
+2025-05-02 15:40:53,343 - WARNING - Aucune donnée GOLD disponible pour 'feature_importance'
+2025-05-02 15:40:53,343 - WARNING - Données feature_importance non disponibles, utilisation de données simulées
+2025-05-02 15:40:53,343 - INFO - Création de données simulées pour feature_importance...
+2025-05-02 15:40:53,936 - INFO - Données simulées pour feature_importance créées avec succès
+2025-05-02 15:40:53,938 - INFO - Chargement des données dans le Datamart 2...
+2025-05-02 15:40:53,938 - INFO - Connexion à MySQL (localhost, tatane, immobilier_prediction_db)...
+2025-05-02 15:40:55,998 - INFO - Connexion à MySQL réussie
+2025-05-02 15:40:55,999 - INFO - Table dm_feature_importance vidée avec succès
+2025-05-02 15:40:56,000 - ERROR - Erreur lors de l'insertion de total_sqft: 1054 (42S22): Unknown column 'feature_importance' in 'field list'
+2025-05-02 15:40:56,000 - ERROR - Erreur lors de l'insertion de lot_size: 1054 (42S22): Unknown column 'feature_importance' in 'field list'
+2025-05-02 15:40:56,001 - ERROR - Erreur lors de l'insertion de bedrooms: 1054 (42S22): Unknown column 'feature_importance' in 'field list'
+2025-05-02 15:40:56,001 - ERROR - Erreur lors de l'insertion de bathrooms: 1054 (42S22): Unknown column 'feature_importance' in 'field list'
+2025-05-02 15:40:56,002 - ERROR - Erreur lors de l'insertion de age: 1054 (42S22): Unknown column 'feature_importance' in 'field list'
+2025-05-02 15:40:56,002 - ERROR - Erreur lors de l'insertion de neighborhood_quality: 1054 (42S22): Unknown column 'feature_importance' in 'field list'
+2025-05-02 15:40:56,003 - ERROR - Erreur lors de l'insertion de school_rating: 1054 (42S22): Unknown column 'feature_importance' in 'field list'
+2025-05-02 15:40:56,003 - ERROR - Erreur lors de l'insertion de distance_to_downtown: 1054 (42S22): Unknown column 'feature_importance' in 'field list'
+2025-05-02 15:40:56,004 - ERROR - Erreur lors de l'insertion de has_garage: 1054 (42S22): Unknown column 'feature_importance' in 'field list'
+2025-05-02 15:40:56,004 - ERROR - Erreur lors de l'insertion de has_pool: 1054 (42S22): Unknown column 'feature_importance' in 'field list'
+2025-05-02 15:40:56,005 - ERROR - Erreur lors de l'insertion de has_view: 1054 (42S22): Unknown column 'feature_importance' in 'field list'
+2025-05-02 15:40:56,005 - ERROR - Erreur lors de l'insertion de has_fireplace: 1054 (42S22): Unknown column 'feature_importance' in 'field list'
+2025-05-02 15:40:56,005 - INFO - 0 caractéristiques insérées dans dm_feature_importance
+2025-05-02 15:40:56,006 - ERROR - Erreur lors de l'insertion de variation régionale: 1054 (42S22): Unknown column 'region' in 'field list'
+2025-05-02 15:40:56,006 - ERROR - Erreur lors de l'insertion de variation régionale: 1054 (42S22): Unknown column 'region' in 'field list'
+2025-05-02 15:40:56,008 - ERROR - Erreur lors de l'insertion de variation régionale: 1054 (42S22): Unknown column 'region' in 'field list'
+2025-05-02 15:40:56,009 - ERROR - Erreur lors de l'insertion de variation régionale: 1054 (42S22): Unknown column 'region' in 'field list'
+2025-05-02 15:40:56,009 - ERROR - Erreur lors de l'insertion de variation régionale: 1054 (42S22): Unknown column 'region' in 'field list'
+2025-05-02 15:40:56,009 - ERROR - Erreur lors de l'insertion de variation régionale: 1054 (42S22): Unknown column 'region' in 'field list'
+2025-05-02 15:40:56,010 - ERROR - Erreur lors de l'insertion de variation régionale: 1054 (42S22): Unknown column 'region' in 'field list'
+2025-05-02 15:40:56,011 - ERROR - Erreur lors de l'insertion de variation régionale: 1054 (42S22): Unknown column 'region' in 'field list'
+2025-05-02 15:40:56,011 - ERROR - Erreur lors de l'insertion de variation régionale: 1054 (42S22): Unknown column 'region' in 'field list'
+2025-05-02 15:40:56,011 - ERROR - Erreur lors de l'insertion de variation régionale: 1054 (42S22): Unknown column 'region' in 'field list'
+2025-05-02 15:40:56,012 - ERROR - Erreur lors de l'insertion de variation régionale: 1054 (42S22): Unknown column 'region' in 'field list'
+2025-05-02 15:40:56,012 - ERROR - Erreur lors de l'insertion de variation régionale: 1054 (42S22): Unknown column 'region' in 'field list'
+2025-05-02 15:40:56,013 - ERROR - Erreur lors de l'insertion de variation régionale: 1054 (42S22): Unknown column 'region' in 'field list'
+2025-05-02 15:40:56,013 - ERROR - Erreur lors de l'insertion de variation régionale: 1054 (42S22): Unknown column 'region' in 'field list'
+2025-05-02 15:40:56,013 - ERROR - Erreur lors de l'insertion de variation régionale: 1054 (42S22): Unknown column 'region' in 'field list'
+2025-05-02 15:40:56,014 - ERROR - Erreur lors de l'insertion de variation régionale: 1054 (42S22): Unknown column 'region' in 'field list'
+2025-05-02 15:40:56,014 - INFO - 0 variations régionales insérées dans dm_regional_feature_variation
+2025-05-02 15:40:56,015 - ERROR - Erreur lors de l'insertion de variation temporelle: 1054 (42S22): Unknown column 'period_id' in 'field list'
+2025-05-02 15:40:56,016 - ERROR - Erreur lors de l'insertion de variation temporelle: 1054 (42S22): Unknown column 'period_id' in 'field list'
+2025-05-02 15:40:56,016 - ERROR - Erreur lors de l'insertion de variation temporelle: 1054 (42S22): Unknown column 'period_id' in 'field list'
+2025-05-02 15:40:56,016 - ERROR - Erreur lors de l'insertion de variation temporelle: 1054 (42S22): Unknown column 'period_id' in 'field list'
+2025-05-02 15:40:56,016 - ERROR - Erreur lors de l'insertion de variation temporelle: 1054 (42S22): Unknown column 'period_id' in 'field list'
+2025-05-02 15:40:56,017 - ERROR - Erreur lors de l'insertion de variation temporelle: 1054 (42S22): Unknown column 'period_id' in 'field list'
+2025-05-02 15:40:56,018 - ERROR - Erreur lors de l'insertion de variation temporelle: 1054 (42S22): Unknown column 'period_id' in 'field list'
+2025-05-02 15:40:56,018 - ERROR - Erreur lors de l'insertion de variation temporelle: 1054 (42S22): Unknown column 'period_id' in 'field list'
+2025-05-02 15:40:56,019 - ERROR - Erreur lors de l'insertion de variation temporelle: 1054 (42S22): Unknown column 'period_id' in 'field list'
+2025-05-02 15:40:56,019 - ERROR - Erreur lors de l'insertion de variation temporelle: 1054 (42S22): Unknown column 'period_id' in 'field list'
+2025-05-02 15:40:56,020 - ERROR - Erreur lors de l'insertion de variation temporelle: 1054 (42S22): Unknown column 'period_id' in 'field list'
+2025-05-02 15:40:56,020 - ERROR - Erreur lors de l'insertion de variation temporelle: 1054 (42S22): Unknown column 'period_id' in 'field list'
+2025-05-02 15:40:56,021 - ERROR - Erreur lors de l'insertion de variation temporelle: 1054 (42S22): Unknown column 'period_id' in 'field list'
+2025-05-02 15:40:56,022 - ERROR - Erreur lors de l'insertion de variation temporelle: 1054 (42S22): Unknown column 'period_id' in 'field list'
+2025-05-02 15:40:56,022 - ERROR - Erreur lors de l'insertion de variation temporelle: 1054 (42S22): Unknown column 'period_id' in 'field list'
+2025-05-02 15:40:56,023 - ERROR - Erreur lors de l'insertion de variation temporelle: 1054 (42S22): Unknown column 'period_id' in 'field list'
+2025-05-02 15:40:56,023 - INFO - 0 variations temporelles insérées dans dm_temporal_feature_variation
+2025-05-02 15:40:56,023 - INFO - Fermeture de la connexion MySQL...
+2025-05-02 15:40:56,023 - INFO - Connexion MySQL fermée
+2025-05-02 15:40:56,024 - INFO - Datamart 2 chargé avec succès: {'dm_feature_importance': 0, 'dm_regional_feature_variation': 0, 'dm_temporal_feature_variation': 0}
+2025-05-02 15:40:56,024 - INFO - Chargement du Datamart 3: Prédictions de Prix Personnalisées...
+2025-05-02 15:40:56,024 - INFO - ETL Base initialisé
+2025-05-02 15:40:56,024 - INFO - Recherche des dernières données pour la table 'price_prediction_features' dans la couche GOLD...
+2025-05-02 15:40:56,025 - INFO - Données récentes trouvées pour 'price_prediction_features': data/gold/price_prediction_features/year=2025/month=05/day=02
+2025-05-02 15:40:56,025 - INFO - Lecture des données depuis ['data/gold/price_prediction_features/year=2025/month=05/day=02\\part-00000-b759a11a-0814-4c1b-87f6-7a1562966d0c-c000.snappy.parquet']
+2025-05-02 15:40:56,262 - INFO - Données GOLD pour 'price_prediction_features' lues avec succès: 1473 lignes, 109 colonnes
+2025-05-02 15:40:56,262 - INFO - Chargement des données dans le Datamart 3...
+2025-05-02 15:40:56,262 - INFO - Insertion des modèles ML dans dm_prediction_models...
+2025-05-02 15:40:56,262 - INFO - Connexion à MySQL (localhost, tatane, immobilier_prediction_db)...
+2025-05-02 15:40:58,312 - INFO - Connexion à MySQL réussie
+2025-05-02 15:40:58,313 - ERROR - Erreur lors de l'insertion du modèle Random Forest Regression: 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`immobilier_prediction_db`.`dm_prediction_results`, CONSTRAINT `dm_prediction_results_ibfk_1` FOREIGN KEY (`model_id`) REFERENCES `dm_prediction_models` (`model_id`))
+2025-05-02 15:40:58,313 - ERROR - Erreur lors de l'insertion du modèle Gradient Boosting Regression: 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`immobilier_prediction_db`.`dm_prediction_results`, CONSTRAINT `dm_prediction_results_ibfk_1` FOREIGN KEY (`model_id`) REFERENCES `dm_prediction_models` (`model_id`))
+2025-05-02 15:40:58,314 - ERROR - Erreur lors de l'insertion du modèle XGBoost Regression: 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`immobilier_prediction_db`.`dm_prediction_results`, CONSTRAINT `dm_prediction_results_ibfk_1` FOREIGN KEY (`model_id`) REFERENCES `dm_prediction_models` (`model_id`))
+2025-05-02 15:40:58,315 - ERROR - Erreur lors de l'insertion du modèle Neural Network MLP: 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`immobilier_prediction_db`.`dm_prediction_results`, CONSTRAINT `dm_prediction_results_ibfk_1` FOREIGN KEY (`model_id`) REFERENCES `dm_prediction_models` (`model_id`))
+2025-05-02 15:40:58,315 - INFO - 0 modèles insérés dans dm_prediction_models
+2025-05-02 15:40:58,315 - INFO - Fermeture de la connexion MySQL...
+2025-05-02 15:40:58,315 - INFO - Connexion MySQL fermée
+2025-05-02 15:40:58,316 - INFO - Insertion des prédictions dans dm_prediction_results...
+2025-05-02 15:40:58,316 - INFO - Connexion à MySQL (localhost, tatane, immobilier_prediction_db)...
+2025-05-02 15:41:00,358 - INFO - Connexion à MySQL réussie
+2025-05-02 15:41:00,896 - INFO - 80 prédictions insérées dans dm_prediction_results
+2025-05-02 15:41:00,896 - INFO - Fermeture de la connexion MySQL...
+2025-05-02 15:41:00,897 - INFO - Connexion MySQL fermée
+2025-05-02 15:41:00,898 - INFO - Datamart 3 chargé avec succès: {'dm_prediction_models': 0, 'dm_prediction_results': 80}
+2025-05-02 15:41:00,898 - INFO - Arrêt de la session Spark
+2025-05-02 15:41:01,363 - INFO - ETL Gold vers MySQL terminé en 0:00:32.866743
+2025-05-02 15:41:01,363 - INFO - ETL Gold vers MySQL exécuté avec succès
+2025-05-02 15:41:01,363 - INFO - Statistiques d'exécution:
+2025-05-02 15:41:01,364 - INFO -   datamart1: {'dm_regional_price_trends': 57, 'dm_neighborhood_comparison': 25, 'dm_seasonal_patterns': 12}
+2025-05-02 15:41:01,364 - INFO -   datamart2: {'dm_feature_importance': 0, 'dm_regional_feature_variation': 0, 'dm_temporal_feature_variation': 0}
+2025-05-02 15:41:01,365 - INFO -   datamart3: {'dm_prediction_models': 0, 'dm_prediction_results': 80}
+2025-05-02 15:41:01,377 - INFO - Closing down clientserver connection
+2025-05-02 15:42:13,831 - INFO - Démarrage du script d'exécution ETL Gold vers MySQL
+2025-05-02 15:42:13,834 - INFO - Paramètres d'exécution:
+2025-05-02 15:42:13,834 - INFO -   Gold Path: data/gold
+2025-05-02 15:42:13,834 - INFO -   MySQL Host: localhost
+2025-05-02 15:42:13,834 - INFO -   MySQL User: tatane
+2025-05-02 15:42:13,834 - INFO -   MySQL Database: immobilier_prediction_db
+2025-05-02 15:42:13,835 - INFO -   Exécution pour tous les datamarts
+2025-05-02 15:42:13,835 - INFO - Démarrage de l'ETL Gold vers MySQL à 2025-05-02 15:42:13
+2025-05-02 15:42:13,835 - INFO - ETL Base initialisé
+2025-05-02 15:42:13,836 - INFO - Initialisation de la session Spark...
+2025-05-02 15:42:18,906 - INFO - Session Spark initialisée avec succès (version: 3.5.5)
+2025-05-02 15:42:18,907 - INFO - Connexion à MySQL (localhost, tatane, immobilier_prediction_db)...
+2025-05-02 15:42:20,946 - INFO - Connexion à MySQL réussie
+2025-05-02 15:42:20,948 - INFO - Toutes les tables requises existent dans la base de données
+2025-05-02 15:42:20,948 - INFO - Fermeture de la connexion MySQL...
+2025-05-02 15:42:20,948 - INFO - Connexion MySQL fermée
+2025-05-02 15:42:20,948 - INFO - Chargement du Datamart 1: Analyse des Tendances de Prix par Région...
+2025-05-02 15:42:20,949 - INFO - ETL Base initialisé
+2025-05-02 15:42:20,949 - INFO - Recherche des dernières données pour la table 'price_trends' dans la couche GOLD...
+2025-05-02 15:42:20,949 - INFO - Données récentes trouvées pour 'price_trends': data/gold/price_trends/year=2025/month=05/day=02
+2025-05-02 15:42:20,950 - INFO - Lecture des données depuis ['data/gold/price_trends/year=2025/month=05/day=02\\part-00000-487fb53c-05af-4e84-bf9d-3375f45d5211-c000.snappy.parquet', 'data/gold/price_trends/year=2025/month=05/day=02\\part-00001-487fb53c-05af-4e84-bf9d-3375f45d5211-c000.snappy.parquet', 'data/gold/price_trends/year=2025/month=05/day=02\\part-00002-487fb53c-05af-4e84-bf9d-3375f45d5211-c000.snappy.parquet', 'data/gold/price_trends/year=2025/month=05/day=02\\part-00003-487fb53c-05af-4e84-bf9d-3375f45d5211-c000.snappy.parquet', 'data/gold/price_trends/year=2025/month=05/day=02\\part-00004-487fb53c-05af-4e84-bf9d-3375f45d5211-c000.snappy.parquet']
+2025-05-02 15:42:26,019 - INFO - Données GOLD pour 'price_trends' lues avec succès: 1054 lignes, 21 colonnes
+2025-05-02 15:42:26,019 - INFO - Recherche des dernières données pour la table 'market_indicators' dans la couche GOLD...
+2025-05-02 15:42:26,020 - INFO - Données récentes trouvées pour 'market_indicators': data/gold/market_indicators/year=2025/month=05/day=02
+2025-05-02 15:42:26,020 - INFO - Lecture des données depuis ['data/gold/market_indicators/year=2025/month=05/day=02\\part-00000-62e27591-112c-41a8-a7ef-6e12a7865502-c000.snappy.parquet']
+2025-05-02 15:42:26,413 - INFO - Données GOLD pour 'market_indicators' lues avec succès: 705 lignes, 22 colonnes
+2025-05-02 15:42:26,413 - INFO - Recherche des dernières données pour la table 'seasonal_variations' dans la couche GOLD...
+2025-05-02 15:42:26,414 - INFO - Données récentes trouvées pour 'seasonal_variations': data/gold/seasonal_variations/year=2025/month=05/day=02
+2025-05-02 15:42:26,415 - INFO - Lecture des données depuis ['data/gold/seasonal_variations/year=2025/month=05/day=02\\part-00000-7b8bc3d1-be6d-46f3-97b4-9906b12f4d85-c000.snappy.parquet', 'data/gold/seasonal_variations/year=2025/month=05/day=02\\part-00001-7b8bc3d1-be6d-46f3-97b4-9906b12f4d85-c000.snappy.parquet']
+2025-05-02 15:42:26,718 - INFO - Données GOLD pour 'seasonal_variations' lues avec succès: 270 lignes, 19 colonnes
+2025-05-02 15:42:26,719 - INFO - Chargement des données dans le Datamart 1...
+2025-05-02 15:42:26,719 - INFO - Transformation des données pour dm_regional_price_trends...
+2025-05-02 15:42:27,757 - INFO - Insertion des données dans la table MySQL dm_regional_price_trends...
+2025-05-02 15:42:27,759 - INFO - Connexion à MySQL (localhost, tatane, immobilier_prediction_db)...
+2025-05-02 15:42:29,813 - INFO - Connexion à MySQL réussie
+2025-05-02 15:42:30,155 - INFO - Lot de 57 enregistrements inséré dans dm_regional_price_trends
+2025-05-02 15:42:30,156 - INFO - Insertion dans dm_regional_price_trends terminée: 57 enregistrements
+2025-05-02 15:42:30,156 - INFO - Fermeture de la connexion MySQL...
+2025-05-02 15:42:30,156 - INFO - Connexion MySQL fermée
+2025-05-02 15:42:30,156 - INFO - Transformation des données pour dm_neighborhood_comparison...
+2025-05-02 15:42:30,156 - WARNING - Colonnes manquantes dans price_trends: ['property_price_per_sqm']
+2025-05-02 15:42:31,018 - INFO - Insertion des données dans la table MySQL dm_neighborhood_comparison...
+2025-05-02 15:42:31,019 - INFO - Connexion à MySQL (localhost, tatane, immobilier_prediction_db)...
+2025-05-02 15:42:33,065 - INFO - Connexion à MySQL réussie
+2025-05-02 15:42:34,017 - INFO - Lot de 25 enregistrements inséré dans dm_neighborhood_comparison
+2025-05-02 15:42:34,018 - INFO - Insertion dans dm_neighborhood_comparison terminée: 25 enregistrements
+2025-05-02 15:42:34,021 - INFO - Fermeture de la connexion MySQL...
+2025-05-02 15:42:34,023 - INFO - Connexion MySQL fermée
+2025-05-02 15:42:34,023 - INFO - Transformation des données pour dm_seasonal_patterns...
+2025-05-02 15:42:34,323 - INFO - Insertion des données dans la table MySQL dm_seasonal_patterns...
+2025-05-02 15:42:34,324 - INFO - Connexion à MySQL (localhost, tatane, immobilier_prediction_db)...
+2025-05-02 15:42:36,386 - INFO - Connexion à MySQL réussie
+2025-05-02 15:42:36,521 - INFO - Lot de 12 enregistrements inséré dans dm_seasonal_patterns
+2025-05-02 15:42:36,522 - INFO - Insertion dans dm_seasonal_patterns terminée: 12 enregistrements
+2025-05-02 15:42:36,522 - INFO - Fermeture de la connexion MySQL...
+2025-05-02 15:42:36,522 - INFO - Connexion MySQL fermée
+2025-05-02 15:42:36,523 - INFO - Datamart 1 chargé avec succès: {'dm_regional_price_trends': 57, 'dm_neighborhood_comparison': 25, 'dm_seasonal_patterns': 12}
+2025-05-02 15:42:36,523 - INFO - Chargement du Datamart 2: Évaluation des Facteurs d'Impact sur les Prix...
+2025-05-02 15:42:36,523 - INFO - ETL Base initialisé
+2025-05-02 15:42:36,524 - INFO - Recherche des dernières données pour la table 'feature_importance' dans la couche GOLD...
+2025-05-02 15:42:36,524 - INFO - Aucune donnée trouvée à la date actuelle, recherche des données les plus récentes...
+2025-05-02 15:42:36,525 - WARNING - Aucune donnée trouvée pour 'feature_importance'
+2025-05-02 15:42:36,525 - WARNING - Aucune donnée GOLD disponible pour 'feature_importance'
+2025-05-02 15:42:36,525 - WARNING - Données feature_importance non disponibles, utilisation de données simulées
+2025-05-02 15:42:36,525 - INFO - Création de données simulées pour feature_importance...
+2025-05-02 15:42:37,191 - INFO - Données simulées pour feature_importance créées avec succès
+2025-05-02 15:42:37,192 - INFO - Chargement des données dans le Datamart 2...
+2025-05-02 15:42:37,192 - INFO - Connexion à MySQL (localhost, tatane, immobilier_prediction_db)...
+2025-05-02 15:42:39,243 - INFO - Connexion à MySQL réussie
+2025-05-02 15:42:39,244 - INFO - Table dm_feature_importance vidée avec succès
+2025-05-02 15:42:39,314 - INFO - 12 caractéristiques insérées dans dm_feature_importance
+2025-05-02 15:42:39,415 - INFO - 16 variations régionales insérées dans dm_regional_feature_variation
+2025-05-02 15:42:39,418 - ERROR - Erreur lors de l'insertion de variation temporelle: 1136 (21S01): Column count doesn't match value count at row 1
+2025-05-02 15:42:39,419 - ERROR - Erreur lors de l'insertion de variation temporelle: 1136 (21S01): Column count doesn't match value count at row 1
+2025-05-02 15:42:39,420 - ERROR - Erreur lors de l'insertion de variation temporelle: 1136 (21S01): Column count doesn't match value count at row 1
+2025-05-02 15:42:39,421 - ERROR - Erreur lors de l'insertion de variation temporelle: 1136 (21S01): Column count doesn't match value count at row 1
+2025-05-02 15:42:39,422 - ERROR - Erreur lors de l'insertion de variation temporelle: 1136 (21S01): Column count doesn't match value count at row 1
+2025-05-02 15:42:39,423 - ERROR - Erreur lors de l'insertion de variation temporelle: 1136 (21S01): Column count doesn't match value count at row 1
+2025-05-02 15:42:39,423 - ERROR - Erreur lors de l'insertion de variation temporelle: 1136 (21S01): Column count doesn't match value count at row 1
+2025-05-02 15:42:39,424 - ERROR - Erreur lors de l'insertion de variation temporelle: 1136 (21S01): Column count doesn't match value count at row 1
+2025-05-02 15:42:39,424 - ERROR - Erreur lors de l'insertion de variation temporelle: 1136 (21S01): Column count doesn't match value count at row 1
+2025-05-02 15:42:39,425 - ERROR - Erreur lors de l'insertion de variation temporelle: 1136 (21S01): Column count doesn't match value count at row 1
+2025-05-02 15:42:39,426 - ERROR - Erreur lors de l'insertion de variation temporelle: 1136 (21S01): Column count doesn't match value count at row 1
+2025-05-02 15:42:39,426 - ERROR - Erreur lors de l'insertion de variation temporelle: 1136 (21S01): Column count doesn't match value count at row 1
+2025-05-02 15:42:39,427 - ERROR - Erreur lors de l'insertion de variation temporelle: 1136 (21S01): Column count doesn't match value count at row 1
+2025-05-02 15:42:39,427 - ERROR - Erreur lors de l'insertion de variation temporelle: 1136 (21S01): Column count doesn't match value count at row 1
+2025-05-02 15:42:39,428 - ERROR - Erreur lors de l'insertion de variation temporelle: 1136 (21S01): Column count doesn't match value count at row 1
+2025-05-02 15:42:39,428 - ERROR - Erreur lors de l'insertion de variation temporelle: 1136 (21S01): Column count doesn't match value count at row 1
+2025-05-02 15:42:39,428 - INFO - 0 variations temporelles insérées dans dm_temporal_feature_variation
+2025-05-02 15:42:39,428 - INFO - Fermeture de la connexion MySQL...
+2025-05-02 15:42:39,429 - INFO - Connexion MySQL fermée
+2025-05-02 15:42:39,429 - INFO - Datamart 2 chargé avec succès: {'dm_feature_importance': 12, 'dm_regional_feature_variation': 16, 'dm_temporal_feature_variation': 0}
+2025-05-02 15:42:39,429 - INFO - Chargement du Datamart 3: Prédictions de Prix Personnalisées...
+2025-05-02 15:42:39,429 - INFO - ETL Base initialisé
+2025-05-02 15:42:39,430 - INFO - Recherche des dernières données pour la table 'price_prediction_features' dans la couche GOLD...
+2025-05-02 15:42:39,430 - INFO - Données récentes trouvées pour 'price_prediction_features': data/gold/price_prediction_features/year=2025/month=05/day=02
+2025-05-02 15:42:39,431 - INFO - Lecture des données depuis ['data/gold/price_prediction_features/year=2025/month=05/day=02\\part-00000-b759a11a-0814-4c1b-87f6-7a1562966d0c-c000.snappy.parquet']
+2025-05-02 15:42:39,697 - INFO - Données GOLD pour 'price_prediction_features' lues avec succès: 1473 lignes, 109 colonnes
+2025-05-02 15:42:39,697 - INFO - Chargement des données dans le Datamart 3...
+2025-05-02 15:42:39,697 - INFO - Insertion des modèles ML dans dm_prediction_models...
+2025-05-02 15:42:39,698 - INFO - Connexion à MySQL (localhost, tatane, immobilier_prediction_db)...
+2025-05-02 15:42:41,745 - INFO - Connexion à MySQL réussie
+2025-05-02 15:42:41,746 - ERROR - Erreur lors de l'insertion du modèle Random Forest Regression: 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`immobilier_prediction_db`.`dm_prediction_results`, CONSTRAINT `dm_prediction_results_ibfk_1` FOREIGN KEY (`model_id`) REFERENCES `dm_prediction_models` (`model_id`))
+2025-05-02 15:42:41,747 - ERROR - Erreur lors de l'insertion du modèle Gradient Boosting Regression: 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`immobilier_prediction_db`.`dm_prediction_results`, CONSTRAINT `dm_prediction_results_ibfk_1` FOREIGN KEY (`model_id`) REFERENCES `dm_prediction_models` (`model_id`))
+2025-05-02 15:42:41,749 - ERROR - Erreur lors de l'insertion du modèle XGBoost Regression: 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`immobilier_prediction_db`.`dm_prediction_results`, CONSTRAINT `dm_prediction_results_ibfk_1` FOREIGN KEY (`model_id`) REFERENCES `dm_prediction_models` (`model_id`))
+2025-05-02 15:42:41,749 - ERROR - Erreur lors de l'insertion du modèle Neural Network MLP: 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`immobilier_prediction_db`.`dm_prediction_results`, CONSTRAINT `dm_prediction_results_ibfk_1` FOREIGN KEY (`model_id`) REFERENCES `dm_prediction_models` (`model_id`))
+2025-05-02 15:42:41,750 - INFO - 0 modèles insérés dans dm_prediction_models
+2025-05-02 15:42:41,750 - INFO - Fermeture de la connexion MySQL...
+2025-05-02 15:42:41,750 - INFO - Connexion MySQL fermée
+2025-05-02 15:42:41,750 - INFO - Insertion des prédictions dans dm_prediction_results...
+2025-05-02 15:42:41,750 - INFO - Connexion à MySQL (localhost, tatane, immobilier_prediction_db)...
+2025-05-02 15:42:43,799 - INFO - Connexion à MySQL réussie
+2025-05-02 15:42:44,297 - INFO - 80 prédictions insérées dans dm_prediction_results
+2025-05-02 15:42:44,297 - INFO - Fermeture de la connexion MySQL...
+2025-05-02 15:42:44,298 - INFO - Connexion MySQL fermée
+2025-05-02 15:42:44,298 - INFO - Datamart 3 chargé avec succès: {'dm_prediction_models': 0, 'dm_prediction_results': 80}
+2025-05-02 15:42:44,298 - INFO - Arrêt de la session Spark
+2025-05-02 15:42:44,865 - INFO - ETL Gold vers MySQL terminé en 0:00:31.029316
+2025-05-02 15:42:44,866 - INFO - ETL Gold vers MySQL exécuté avec succès
+2025-05-02 15:42:44,866 - INFO - Statistiques d'exécution:
+2025-05-02 15:42:44,866 - INFO -   datamart1: {'dm_regional_price_trends': 57, 'dm_neighborhood_comparison': 25, 'dm_seasonal_patterns': 12}
+2025-05-02 15:42:44,866 - INFO -   datamart2: {'dm_feature_importance': 12, 'dm_regional_feature_variation': 16, 'dm_temporal_feature_variation': 0}
+2025-05-02 15:42:44,867 - INFO -   datamart3: {'dm_prediction_models': 0, 'dm_prediction_results': 80}
+2025-05-02 15:42:44,880 - INFO - Closing down clientserver connection
+2025-05-02 15:43:25,324 - INFO - Démarrage du script d'exécution ETL Gold vers MySQL
+2025-05-02 15:43:25,327 - INFO - Paramètres d'exécution:
+2025-05-02 15:43:25,327 - INFO -   Gold Path: data/gold
+2025-05-02 15:43:25,327 - INFO -   MySQL Host: localhost
+2025-05-02 15:43:25,327 - INFO -   MySQL User: tatane
+2025-05-02 15:43:25,327 - INFO -   MySQL Database: immobilier_prediction_db
+2025-05-02 15:43:25,328 - INFO -   Exécution pour tous les datamarts
+2025-05-02 15:43:25,328 - INFO - Démarrage de l'ETL Gold vers MySQL à 2025-05-02 15:43:25
+2025-05-02 15:43:25,328 - INFO - ETL Base initialisé
+2025-05-02 15:43:25,328 - INFO - Initialisation de la session Spark...
+2025-05-02 15:43:31,108 - INFO - Session Spark initialisée avec succès (version: 3.5.5)
+2025-05-02 15:43:31,108 - INFO - Connexion à MySQL (localhost, tatane, immobilier_prediction_db)...
+2025-05-02 15:43:33,157 - INFO - Connexion à MySQL réussie
+2025-05-02 15:43:33,159 - INFO - Toutes les tables requises existent dans la base de données
+2025-05-02 15:43:33,159 - INFO - Fermeture de la connexion MySQL...
+2025-05-02 15:43:33,160 - INFO - Connexion MySQL fermée
+2025-05-02 15:43:33,160 - INFO - Chargement du Datamart 1: Analyse des Tendances de Prix par Région...
+2025-05-02 15:43:33,160 - INFO - ETL Base initialisé
+2025-05-02 15:43:33,160 - INFO - Recherche des dernières données pour la table 'price_trends' dans la couche GOLD...
+2025-05-02 15:43:33,160 - INFO - Données récentes trouvées pour 'price_trends': data/gold/price_trends/year=2025/month=05/day=02
+2025-05-02 15:43:33,161 - INFO - Lecture des données depuis ['data/gold/price_trends/year=2025/month=05/day=02\\part-00000-487fb53c-05af-4e84-bf9d-3375f45d5211-c000.snappy.parquet', 'data/gold/price_trends/year=2025/month=05/day=02\\part-00001-487fb53c-05af-4e84-bf9d-3375f45d5211-c000.snappy.parquet', 'data/gold/price_trends/year=2025/month=05/day=02\\part-00002-487fb53c-05af-4e84-bf9d-3375f45d5211-c000.snappy.parquet', 'data/gold/price_trends/year=2025/month=05/day=02\\part-00003-487fb53c-05af-4e84-bf9d-3375f45d5211-c000.snappy.parquet', 'data/gold/price_trends/year=2025/month=05/day=02\\part-00004-487fb53c-05af-4e84-bf9d-3375f45d5211-c000.snappy.parquet']
+2025-05-02 15:43:37,988 - INFO - Données GOLD pour 'price_trends' lues avec succès: 1054 lignes, 21 colonnes
+2025-05-02 15:43:37,988 - INFO - Recherche des dernières données pour la table 'market_indicators' dans la couche GOLD...
+2025-05-02 15:43:37,988 - INFO - Données récentes trouvées pour 'market_indicators': data/gold/market_indicators/year=2025/month=05/day=02
+2025-05-02 15:43:37,988 - INFO - Lecture des données depuis ['data/gold/market_indicators/year=2025/month=05/day=02\\part-00000-62e27591-112c-41a8-a7ef-6e12a7865502-c000.snappy.parquet']
+2025-05-02 15:43:38,272 - INFO - Données GOLD pour 'market_indicators' lues avec succès: 705 lignes, 22 colonnes
+2025-05-02 15:43:38,273 - INFO - Recherche des dernières données pour la table 'seasonal_variations' dans la couche GOLD...
+2025-05-02 15:43:38,274 - INFO - Données récentes trouvées pour 'seasonal_variations': data/gold/seasonal_variations/year=2025/month=05/day=02
+2025-05-02 15:43:38,275 - INFO - Lecture des données depuis ['data/gold/seasonal_variations/year=2025/month=05/day=02\\part-00000-7b8bc3d1-be6d-46f3-97b4-9906b12f4d85-c000.snappy.parquet', 'data/gold/seasonal_variations/year=2025/month=05/day=02\\part-00001-7b8bc3d1-be6d-46f3-97b4-9906b12f4d85-c000.snappy.parquet']
+2025-05-02 15:43:38,569 - INFO - Données GOLD pour 'seasonal_variations' lues avec succès: 270 lignes, 19 colonnes
+2025-05-02 15:43:38,571 - INFO - Chargement des données dans le Datamart 1...
+2025-05-02 15:43:38,571 - INFO - Transformation des données pour dm_regional_price_trends...
+2025-05-02 15:43:39,516 - INFO - Insertion des données dans la table MySQL dm_regional_price_trends...
+2025-05-02 15:43:39,516 - INFO - Connexion à MySQL (localhost, tatane, immobilier_prediction_db)...
+2025-05-02 15:43:41,566 - INFO - Connexion à MySQL réussie
+2025-05-02 15:43:41,853 - INFO - Lot de 57 enregistrements inséré dans dm_regional_price_trends
+2025-05-02 15:43:41,854 - INFO - Insertion dans dm_regional_price_trends terminée: 57 enregistrements
+2025-05-02 15:43:41,854 - INFO - Fermeture de la connexion MySQL...
+2025-05-02 15:43:41,854 - INFO - Connexion MySQL fermée
+2025-05-02 15:43:41,855 - INFO - Transformation des données pour dm_neighborhood_comparison...
+2025-05-02 15:43:41,855 - WARNING - Colonnes manquantes dans price_trends: ['property_price_per_sqm']
+2025-05-02 15:43:43,073 - INFO - Insertion des données dans la table MySQL dm_neighborhood_comparison...
+2025-05-02 15:43:43,073 - INFO - Connexion à MySQL (localhost, tatane, immobilier_prediction_db)...
+2025-05-02 15:43:45,132 - INFO - Connexion à MySQL réussie
+2025-05-02 15:43:46,159 - INFO - Lot de 25 enregistrements inséré dans dm_neighborhood_comparison
+2025-05-02 15:43:46,160 - INFO - Insertion dans dm_neighborhood_comparison terminée: 25 enregistrements
+2025-05-02 15:43:46,160 - INFO - Fermeture de la connexion MySQL...
+2025-05-02 15:43:46,160 - INFO - Connexion MySQL fermée
+2025-05-02 15:43:46,161 - INFO - Transformation des données pour dm_seasonal_patterns...
+2025-05-02 15:43:46,395 - INFO - Insertion des données dans la table MySQL dm_seasonal_patterns...
+2025-05-02 15:43:46,395 - INFO - Connexion à MySQL (localhost, tatane, immobilier_prediction_db)...
+2025-05-02 15:43:48,438 - INFO - Connexion à MySQL réussie
+2025-05-02 15:43:48,599 - INFO - Lot de 12 enregistrements inséré dans dm_seasonal_patterns
+2025-05-02 15:43:48,600 - INFO - Insertion dans dm_seasonal_patterns terminée: 12 enregistrements
+2025-05-02 15:43:48,600 - INFO - Fermeture de la connexion MySQL...
+2025-05-02 15:43:48,601 - INFO - Connexion MySQL fermée
+2025-05-02 15:43:48,601 - INFO - Datamart 1 chargé avec succès: {'dm_regional_price_trends': 57, 'dm_neighborhood_comparison': 25, 'dm_seasonal_patterns': 12}
+2025-05-02 15:43:48,602 - INFO - Chargement du Datamart 2: Évaluation des Facteurs d'Impact sur les Prix...
+2025-05-02 15:43:48,602 - INFO - ETL Base initialisé
+2025-05-02 15:43:48,602 - INFO - Recherche des dernières données pour la table 'feature_importance' dans la couche GOLD...
+2025-05-02 15:43:48,602 - INFO - Aucune donnée trouvée à la date actuelle, recherche des données les plus récentes...
+2025-05-02 15:43:48,603 - WARNING - Aucune donnée trouvée pour 'feature_importance'
+2025-05-02 15:43:48,603 - WARNING - Aucune donnée GOLD disponible pour 'feature_importance'
+2025-05-02 15:43:48,603 - WARNING - Données feature_importance non disponibles, utilisation de données simulées
+2025-05-02 15:43:48,603 - INFO - Création de données simulées pour feature_importance...
+2025-05-02 15:43:49,161 - INFO - Données simulées pour feature_importance créées avec succès
+2025-05-02 15:43:49,161 - INFO - Chargement des données dans le Datamart 2...
+2025-05-02 15:43:49,161 - INFO - Connexion à MySQL (localhost, tatane, immobilier_prediction_db)...
+2025-05-02 15:43:51,202 - INFO - Connexion à MySQL réussie
+2025-05-02 15:43:51,205 - WARNING - Échec du vidage de dm_feature_importance: 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`immobilier_prediction_db`.`dm_regional_feature_variation`, CONSTRAINT `dm_regional_feature_variation_ibfk_1` FOREIGN KEY (`feature_id`) REFERENCES `dm_feature_importance` (`feature_id`))
+2025-05-02 15:43:51,206 - ERROR - Erreur lors de l'insertion de total_sqft: 1062 (23000): Duplicate entry '1' for key 'dm_feature_importance.PRIMARY'
+2025-05-02 15:43:51,206 - ERROR - Erreur lors de l'insertion de lot_size: 1062 (23000): Duplicate entry '2' for key 'dm_feature_importance.PRIMARY'
+2025-05-02 15:43:51,206 - ERROR - Erreur lors de l'insertion de bedrooms: 1062 (23000): Duplicate entry '3' for key 'dm_feature_importance.PRIMARY'
+2025-05-02 15:43:51,208 - ERROR - Erreur lors de l'insertion de bathrooms: 1062 (23000): Duplicate entry '4' for key 'dm_feature_importance.PRIMARY'
+2025-05-02 15:43:51,208 - ERROR - Erreur lors de l'insertion de age: 1062 (23000): Duplicate entry '5' for key 'dm_feature_importance.PRIMARY'
+2025-05-02 15:43:51,209 - ERROR - Erreur lors de l'insertion de neighborhood_quality: 1062 (23000): Duplicate entry '6' for key 'dm_feature_importance.PRIMARY'
+2025-05-02 15:43:51,209 - ERROR - Erreur lors de l'insertion de school_rating: 1062 (23000): Duplicate entry '7' for key 'dm_feature_importance.PRIMARY'
+2025-05-02 15:43:51,209 - ERROR - Erreur lors de l'insertion de distance_to_downtown: 1062 (23000): Duplicate entry '8' for key 'dm_feature_importance.PRIMARY'
+2025-05-02 15:43:51,210 - ERROR - Erreur lors de l'insertion de has_garage: 1062 (23000): Duplicate entry '9' for key 'dm_feature_importance.PRIMARY'
+2025-05-02 15:43:51,210 - ERROR - Erreur lors de l'insertion de has_pool: 1062 (23000): Duplicate entry '10' for key 'dm_feature_importance.PRIMARY'
+2025-05-02 15:43:51,211 - ERROR - Erreur lors de l'insertion de has_view: 1062 (23000): Duplicate entry '11' for key 'dm_feature_importance.PRIMARY'
+2025-05-02 15:43:51,211 - ERROR - Erreur lors de l'insertion de has_fireplace: 1062 (23000): Duplicate entry '12' for key 'dm_feature_importance.PRIMARY'
+2025-05-02 15:43:51,211 - INFO - 0 caractéristiques insérées dans dm_feature_importance
+2025-05-02 15:43:51,299 - INFO - 16 variations régionales insérées dans dm_regional_feature_variation
+2025-05-02 15:43:51,406 - INFO - 16 variations temporelles insérées dans dm_temporal_feature_variation
+2025-05-02 15:43:51,407 - INFO - Fermeture de la connexion MySQL...
+2025-05-02 15:43:51,408 - INFO - Connexion MySQL fermée
+2025-05-02 15:43:51,408 - INFO - Datamart 2 chargé avec succès: {'dm_feature_importance': 0, 'dm_regional_feature_variation': 16, 'dm_temporal_feature_variation': 16}
+2025-05-02 15:43:51,408 - INFO - Chargement du Datamart 3: Prédictions de Prix Personnalisées...
+2025-05-02 15:43:51,408 - INFO - ETL Base initialisé
+2025-05-02 15:43:51,409 - INFO - Recherche des dernières données pour la table 'price_prediction_features' dans la couche GOLD...
+2025-05-02 15:43:51,409 - INFO - Données récentes trouvées pour 'price_prediction_features': data/gold/price_prediction_features/year=2025/month=05/day=02
+2025-05-02 15:43:51,409 - INFO - Lecture des données depuis ['data/gold/price_prediction_features/year=2025/month=05/day=02\\part-00000-b759a11a-0814-4c1b-87f6-7a1562966d0c-c000.snappy.parquet']
+2025-05-02 15:43:51,677 - INFO - Données GOLD pour 'price_prediction_features' lues avec succès: 1473 lignes, 109 colonnes
+2025-05-02 15:43:51,677 - INFO - Chargement des données dans le Datamart 3...
+2025-05-02 15:43:51,677 - INFO - Insertion des modèles ML dans dm_prediction_models...
+2025-05-02 15:43:51,677 - INFO - Connexion à MySQL (localhost, tatane, immobilier_prediction_db)...
+2025-05-02 15:43:53,725 - INFO - Connexion à MySQL réussie
+2025-05-02 15:43:53,727 - ERROR - Erreur lors de l'insertion du modèle Random Forest Regression: 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`immobilier_prediction_db`.`dm_prediction_results`, CONSTRAINT `dm_prediction_results_ibfk_1` FOREIGN KEY (`model_id`) REFERENCES `dm_prediction_models` (`model_id`))
+2025-05-02 15:43:53,728 - ERROR - Erreur lors de l'insertion du modèle Gradient Boosting Regression: 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`immobilier_prediction_db`.`dm_prediction_results`, CONSTRAINT `dm_prediction_results_ibfk_1` FOREIGN KEY (`model_id`) REFERENCES `dm_prediction_models` (`model_id`))
+2025-05-02 15:43:53,728 - ERROR - Erreur lors de l'insertion du modèle XGBoost Regression: 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`immobilier_prediction_db`.`dm_prediction_results`, CONSTRAINT `dm_prediction_results_ibfk_1` FOREIGN KEY (`model_id`) REFERENCES `dm_prediction_models` (`model_id`))
+2025-05-02 15:43:53,728 - ERROR - Erreur lors de l'insertion du modèle Neural Network MLP: 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`immobilier_prediction_db`.`dm_prediction_results`, CONSTRAINT `dm_prediction_results_ibfk_1` FOREIGN KEY (`model_id`) REFERENCES `dm_prediction_models` (`model_id`))
+2025-05-02 15:43:53,728 - INFO - 0 modèles insérés dans dm_prediction_models
+2025-05-02 15:43:53,729 - INFO - Fermeture de la connexion MySQL...
+2025-05-02 15:43:53,729 - INFO - Connexion MySQL fermée
+2025-05-02 15:43:53,729 - INFO - Insertion des prédictions dans dm_prediction_results...
+2025-05-02 15:43:53,729 - INFO - Connexion à MySQL (localhost, tatane, immobilier_prediction_db)...
+2025-05-02 15:43:55,762 - INFO - Connexion à MySQL réussie
+2025-05-02 15:43:56,240 - INFO - 80 prédictions insérées dans dm_prediction_results
+2025-05-02 15:43:56,240 - INFO - Fermeture de la connexion MySQL...
+2025-05-02 15:43:56,240 - INFO - Connexion MySQL fermée
+2025-05-02 15:43:56,241 - INFO - Datamart 3 chargé avec succès: {'dm_prediction_models': 0, 'dm_prediction_results': 80}
+2025-05-02 15:43:56,241 - INFO - Arrêt de la session Spark
+2025-05-02 15:43:56,506 - INFO - ETL Gold vers MySQL terminé en 0:00:31.178277
+2025-05-02 15:43:56,507 - INFO - ETL Gold vers MySQL exécuté avec succès
+2025-05-02 15:43:56,507 - INFO - Statistiques d'exécution:
+2025-05-02 15:43:56,507 - INFO -   datamart1: {'dm_regional_price_trends': 57, 'dm_neighborhood_comparison': 25, 'dm_seasonal_patterns': 12}
+2025-05-02 15:43:56,507 - INFO -   datamart2: {'dm_feature_importance': 0, 'dm_regional_feature_variation': 16, 'dm_temporal_feature_variation': 16}
+2025-05-02 15:43:56,507 - INFO -   datamart3: {'dm_prediction_models': 0, 'dm_prediction_results': 80}
+2025-05-02 15:43:56,521 - INFO - Closing down clientserver connection

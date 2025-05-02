@@ -1,0 +1,141 @@
+2025-05-02 15:00:40,387 - INFO - Démarrage du script d'exécution ETL Gold vers MySQL
+2025-05-02 15:00:40,389 - INFO - Paramètres d'exécution:
+2025-05-02 15:00:40,389 - INFO -   Gold Path: data/gold
+2025-05-02 15:00:40,389 - INFO -   MySQL Host: localhost
+2025-05-02 15:00:40,389 - INFO -   MySQL User: tatane
+2025-05-02 15:00:40,389 - INFO -   MySQL Database: immobilier_prediction_db
+2025-05-02 15:00:40,389 - INFO -   Datamart: all
+2025-05-02 15:00:40,390 - INFO - ETL Gold vers MySQL initialisé
+2025-05-02 15:00:40,390 - INFO - Démarrage de l'ETL Gold vers MySQL à 2025-05-02 15:00:40
+2025-05-02 15:00:40,390 - INFO - Initialisation de la session Spark...
+2025-05-02 15:00:44,679 - INFO - Session Spark initialisée avec succès (version: 3.5.5)
+2025-05-02 15:00:44,680 - INFO - Connexion à MySQL (localhost, tatane, immobilier_prediction_db)...
+2025-05-02 15:00:46,717 - INFO - Connexion à MySQL réussie
+2025-05-02 15:00:46,719 - INFO - Toutes les tables requises existent dans la base de données
+2025-05-02 15:00:46,720 - INFO - Fermeture de la connexion MySQL...
+2025-05-02 15:00:46,720 - INFO - Connexion MySQL fermée
+2025-05-02 15:00:46,720 - INFO - Recherche des dernières données pour la table 'price_trends' dans la couche GOLD...
+2025-05-02 15:00:46,721 - WARNING - Le chemin data/gold/price_trends n'existe pas
+2025-05-02 15:00:46,721 - WARNING - Aucune donnée GOLD disponible pour 'price_trends'
+2025-05-02 15:00:46,721 - INFO - Recherche des dernières données pour la table 'feature_importance' dans la couche GOLD...
+2025-05-02 15:00:46,721 - WARNING - Le chemin data/gold/feature_importance n'existe pas
+2025-05-02 15:00:46,722 - WARNING - Aucune donnée GOLD disponible pour 'feature_importance'
+2025-05-02 15:00:46,722 - INFO - Recherche des dernières données pour la table 'price_prediction_features' dans la couche GOLD...
+2025-05-02 15:00:46,722 - WARNING - Le chemin data/gold/price_prediction_features n'existe pas
+2025-05-02 15:00:46,722 - WARNING - Aucune donnée GOLD disponible pour 'price_prediction_features'
+2025-05-02 15:00:46,722 - INFO - Recherche des dernières données pour la table 'moving_averages' dans la couche GOLD...
+2025-05-02 15:00:46,723 - WARNING - Le chemin data/gold/moving_averages n'existe pas
+2025-05-02 15:00:46,723 - WARNING - Aucune donnée GOLD disponible pour 'moving_averages'
+2025-05-02 15:00:46,723 - INFO - Recherche des dernières données pour la table 'seasonal_variations' dans la couche GOLD...
+2025-05-02 15:00:46,723 - WARNING - Le chemin data/gold/seasonal_variations n'existe pas
+2025-05-02 15:00:46,724 - WARNING - Aucune donnée GOLD disponible pour 'seasonal_variations'
+2025-05-02 15:00:46,724 - INFO - Recherche des dernières données pour la table 'market_indicators' dans la couche GOLD...
+2025-05-02 15:00:46,724 - WARNING - Le chemin data/gold/market_indicators n'existe pas
+2025-05-02 15:00:46,724 - WARNING - Aucune donnée GOLD disponible pour 'market_indicators'
+2025-05-02 15:00:46,724 - WARNING - Certaines données GOLD n'ont pas pu être lues
+2025-05-02 15:00:46,724 - INFO - Chargement des données dans le Datamart 1...
+2025-05-02 15:00:46,724 - INFO - Transformation des données pour dm_regional_price_trends...
+2025-05-02 15:00:46,724 - ERROR - Données manquantes pour transformer dm_regional_price_trends
+2025-05-02 15:00:46,724 - INFO - Transformation des données pour dm_neighborhood_comparison...
+2025-05-02 15:00:46,726 - ERROR - Données manquantes pour transformer dm_neighborhood_comparison
+2025-05-02 15:00:46,726 - INFO - Transformation des données pour dm_seasonal_patterns...
+2025-05-02 15:00:46,726 - ERROR - Données manquantes pour transformer dm_seasonal_patterns
+2025-05-02 15:00:46,726 - INFO - Chargement des données dans le Datamart 2...
+2025-05-02 15:00:46,726 - INFO - Transformation des données pour dm_feature_importance...
+2025-05-02 15:00:46,726 - ERROR - Données manquantes pour transformer dm_feature_importance
+2025-05-02 15:00:46,727 - INFO - Transformation des données pour dm_regional_feature_variation...
+2025-05-02 15:00:46,727 - ERROR - Données manquantes pour transformer dm_regional_feature_variation
+2025-05-02 15:00:46,727 - INFO - Transformation des données pour dm_temporal_feature_variation...
+2025-05-02 15:00:46,727 - ERROR - Données manquantes pour transformer dm_temporal_feature_variation
+2025-05-02 15:00:46,727 - INFO - Chargement des données dans le Datamart 3...
+2025-05-02 15:00:46,727 - INFO - Transformation des données pour dm_prediction_models...
+2025-05-02 15:00:51,474 - ERROR - Erreur fatale dans l'ETL Gold vers MySQL: An error occurred while calling o54.count.
+: org.apache.spark.SparkException: Job aborted due to stage failure: Task 8 in stage 0.0 failed 1 times, most recent failure: Lost task 8.0 in stage 0.0 (TID 8) (DESKTOP-JDJPJ81.mshome.net executor driver): org.apache.spark.SparkException: Python worker exited unexpectedly (crashed)
+	at org.apache.spark.api.python.BasePythonRunner$ReaderIterator$$anonfun$1.applyOrElse(PythonRunner.scala:612)
+	at org.apache.spark.api.python.BasePythonRunner$ReaderIterator$$anonfun$1.applyOrElse(PythonRunner.scala:594)
+	at scala.runtime.AbstractPartialFunction.apply(AbstractPartialFunction.scala:38)
+	at org.apache.spark.api.python.PythonRunner$$anon$3.read(PythonRunner.scala:789)
+	at org.apache.spark.api.python.PythonRunner$$anon$3.read(PythonRunner.scala:766)
+	at org.apache.spark.api.python.BasePythonRunner$ReaderIterator.hasNext(PythonRunner.scala:525)
+	at org.apache.spark.InterruptibleIterator.hasNext(InterruptibleIterator.scala:37)
+	at scala.collection.Iterator$$anon$11.hasNext(Iterator.scala:491)
+	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.hashAgg_doAggregateWithoutKey_0$(Unknown Source)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.processNext(Unknown Source)
+	at org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)
+	at org.apache.spark.sql.execution.WholeStageCodegenEvaluatorFactory$WholeStageCodegenPartitionEvaluator$$anon$1.hasNext(WholeStageCodegenEvaluatorFactory.scala:43)
+	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+	at org.apache.spark.shuffle.sort.BypassMergeSortShuffleWriter.write(BypassMergeSortShuffleWriter.java:140)
+	at org.apache.spark.shuffle.ShuffleWriteProcessor.write(ShuffleWriteProcessor.scala:59)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:104)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:54)
+	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
+	at org.apache.spark.scheduler.Task.run(Task.scala:141)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.io.EOFException
+	at java.io.DataInputStream.readInt(DataInputStream.java:392)
+	at org.apache.spark.api.python.PythonRunner$$anon$3.read(PythonRunner.scala:774)
+	... 25 more
+
+Driver stacktrace:
+	at org.apache.spark.scheduler.DAGScheduler.failJobAndIndependentStages(DAGScheduler.scala:2856)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2(DAGScheduler.scala:2792)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2$adapted(DAGScheduler.scala:2791)
+	at scala.collection.mutable.ResizableArray.foreach(ResizableArray.scala:62)
+	at scala.collection.mutable.ResizableArray.foreach$(ResizableArray.scala:55)
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:49)
+	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:2791)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1(DAGScheduler.scala:1247)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1$adapted(DAGScheduler.scala:1247)
+	at scala.Option.foreach(Option.scala:407)
+	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:1247)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:3060)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2994)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2983)
+	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:49)
+Caused by: org.apache.spark.SparkException: Python worker exited unexpectedly (crashed)
+	at org.apache.spark.api.python.BasePythonRunner$ReaderIterator$$anonfun$1.applyOrElse(PythonRunner.scala:612)
+	at org.apache.spark.api.python.BasePythonRunner$ReaderIterator$$anonfun$1.applyOrElse(PythonRunner.scala:594)
+	at scala.runtime.AbstractPartialFunction.apply(AbstractPartialFunction.scala:38)
+	at org.apache.spark.api.python.PythonRunner$$anon$3.read(PythonRunner.scala:789)
+	at org.apache.spark.api.python.PythonRunner$$anon$3.read(PythonRunner.scala:766)
+	at org.apache.spark.api.python.BasePythonRunner$ReaderIterator.hasNext(PythonRunner.scala:525)
+	at org.apache.spark.InterruptibleIterator.hasNext(InterruptibleIterator.scala:37)
+	at scala.collection.Iterator$$anon$11.hasNext(Iterator.scala:491)
+	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.hashAgg_doAggregateWithoutKey_0$(Unknown Source)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.processNext(Unknown Source)
+	at org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)
+	at org.apache.spark.sql.execution.WholeStageCodegenEvaluatorFactory$WholeStageCodegenPartitionEvaluator$$anon$1.hasNext(WholeStageCodegenEvaluatorFactory.scala:43)
+	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+	at org.apache.spark.shuffle.sort.BypassMergeSortShuffleWriter.write(BypassMergeSortShuffleWriter.java:140)
+	at org.apache.spark.shuffle.ShuffleWriteProcessor.write(ShuffleWriteProcessor.scala:59)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:104)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:54)
+	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
+	at org.apache.spark.scheduler.Task.run(Task.scala:141)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.io.EOFException
+	at java.io.DataInputStream.readInt(DataInputStream.java:392)
+	at org.apache.spark.api.python.PythonRunner$$anon$3.read(PythonRunner.scala:774)
+	... 25 more
+
+2025-05-02 15:00:51,480 - INFO - Arrêt de la session Spark
+2025-05-02 15:00:51,685 - ERROR - Échec de l'ETL Gold vers MySQL: Erreur inconnue
+2025-05-02 15:00:51,700 - INFO - Closing down clientserver connection
